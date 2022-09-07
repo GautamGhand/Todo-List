@@ -19,6 +19,7 @@ if(!empty($_POST['submit']))
         $cnt=!empty($_SESSION['data'])?count($_SESSION['data']):0;
         $_POST['id']=$cnt+1;
         $_SESSION['data'][]=$_POST;
+        $_SESSION['success']=false;
         header('location:listing.php');
     }
 }

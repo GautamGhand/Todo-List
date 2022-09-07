@@ -22,5 +22,15 @@ function validate($fields)
     }
     return $error;
 }
-
+function pageblock($valid)
+{
+    if(isset($valid['success']))
+    {
+            return true;
+    }
+    else
+    {
+        return false;
+    }
+}
 ?>

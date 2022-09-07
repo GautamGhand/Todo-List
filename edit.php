@@ -1,16 +1,30 @@
 <?php 
 session_start();
 include('validation.php');
-
 $id=$_GET['id'];
+$count =0;
 $value=[];
+$valid=pageblock($_SESSION);
+if($valid==false)
+{
+    header('location:main.php');
+}
 foreach($_SESSION['data'] as $k=>$v)
 {
    
     if($id==$v['id'])
     {
         $value=$v;
+        $count=0;
+        break;
     }
+    else{
+       $count++;
+    }
+}
+if($count>0)
+{
+    header('location:main.php');
 }
 if(!empty($_POST['submit']))
 {

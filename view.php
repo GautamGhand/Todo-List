@@ -13,6 +13,12 @@
     </tr>
 <?php 
 session_start();
+include('validation.php');
+$valid=pageblock($_SESSION);
+if($valid==false)
+{
+    header('location:main.php');
+}
 $id=$_GET['id'];
 $desc=[];
 foreach($_SESSION['data'] as $k=>$v)
